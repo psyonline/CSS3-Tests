@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> CSS3 Solar System </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+<style>
+
+body { font-family:arial; font-size:14px; color:#999; line-height:1em; margin:0; padding:0; background:#000; overflow:hidden; }
+
+#solarsystem { position:absolute; left:50%; top:50%; width:760px; height:760px; margin:-380px 0 0 -380px; -webkit-transform-style:preserve-3d; }
+#solarsystem div { position:absolute; left:50%; top:50%; border:1px solid #191919; border-radius:100%; -webkit-transition:border-color 0.3s linear; -webkit-animation-name:revolution, rotation2; -webkit-animation-timing-function:linear; -webkit-animation-iteration-count:infinite; }
+#solarsystem div span { position:absolute; border-radius:100%; -webkit-transition:all 1s linear; }
+#solarsystem div.focus { border-color:#777; }
+#solarsystem div.focus span { box-shadow:0 0 10px #fff; }
+
+#solarsystem div.sun { width:100px; height:100px; margin:-50px 0 0 -50px; background:#fb3c00; box-shadow:inset 0 0 75px #fff200, 0 0 220px rgba(255, 242, 0, 0.6); -webkit-animation:sunshine 3s linear infinite; }
+
+#solarsystem div.mercury { width:114px; height:114px; margin:-57px 0 0 -57px; -webkit-animation-duration:2.4s; }
+#solarsystem div.mercury span { left:55px; top:-3px; width:4px; height:4px; background:#ce5e0d; box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 20px #000; }
+
+#solarsystem div.venus { width:128px; height:128px; margin:-64px 0 0 -64px; -webkit-animation-duration:6.1s; }
+#solarsystem div.venus span { left:127px; top:62px; width:4px; height:4px; background:#e2c84e; box-shadow:inset -2px 0 2px rgba(0, 0, 0, 0.5), 0 0 20px #000; }
+
+#solarsystem div.earth { width:142px; height:142px; margin:-71px 0 0 -71px; -webkit-animation-duration:10s; }
+#solarsystem div.earth span { left:68px; top:140px; width:6px; height:6px; background:#6d83ef; box-shadow:inset 0 -3px 3px rgba(0, 0, 0, 0.5), 0 0 20px #000; }
+#solarsystem div.earth span.moon { width:8px; height:8px; margin:-1px 0 0 -1px; background:none; box-shadow:none; -webkit-animation:revolution 1s linear infinite; }
+#solarsystem div.earth span.moon span { left:-1px; top:4px; width:1px; height:1px; background:#d1ac75; box-shadow:none; }
+
+#solarsystem div.mars { width:164px; height:164px; margin:-82px 0 0 -82px; -webkit-animation-duration:18.8s; }
+#solarsystem div.mars span { left:-3px; top:79px; width:4px; height:4px; background:#e1bc8e; box-shadow:inset 1px 0 2px rgba(0, 0, 0, 0.6), 0 0 20px #000; }
+
+#solarsystem div.jupiter { width:308px; height:308px; margin:-154px 0 0 -154px; -webkit-animation-duration:18.7s; }
+#solarsystem div.jupiter span { left:127px; top:-27px; width:54px; height:54px; background:#d1ac75; box-shadow:inset 0 18px 15px rgba(0, 0, 0, 0.35), 0 0 20px #000; }
+
+#solarsystem div.saturn { width:468px; height:468px; margin:-234px 0 0 -234px; -webkit-animation-duration:294.6s; }
+#solarsystem div.saturn span { left:446px; top:212px; width:44px; height:44px; background:#e6ea97; box-shadow:inset -14px 0 15px rgba(0, 0, 0, 0.45), 0 0 20px #000; }
+
+#solarsystem div.uranus { width:584px; height:584px; margin:-292px 0 0 -292px; -webkit-animation-duration:841.2s; }
+#solarsystem div.uranus span { left:281px; top:573px; width:22px; height:22px; background:#88c6f0; box-shadow:inset 0 -7px 15px rgba(0, 0, 0, 0.65), 0 0 20px #000; }
+
+#solarsystem div.neptune { width:700px; height:700px; margin:-350px 0 0 -350px; -webkit-animation-duration:1649.9s; }
+#solarsystem div.neptune span { left:-10px; top:340px; width:20px; height:20px; background:#5fa0fc; box-shadow:inset 7px 0 15px rgba(0, 0, 0, 0.6), 0 0 20px #000; }
+
+#solarsystem div.pluto { width:744px; height:744px; margin:-372px 0 0 -372px; opacity:0.75; -webkit-animation-duration:2480s; }
+#solarsystem div.pluto span { left:370px; top:-3px; width:4px; height:4px; background:#eac69d; box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 0 20px #000; }
+
+@-webkit-keyframes sunshine{
+	0% { box-shadow:inset 0 0 75px #fff200, 0 0 220px rgba(255, 242, 0, 0.6); }
+	50% { box-shadow:inset 0 0 40px #fff200, 0 0 150px rgba(255, 242, 0, 0.45); }
+	100% { box-shadow:inset 0 0 75px #fff200, 0 0 220px rgba(255, 242, 0, 0.6); }
+}
+@-webkit-keyframes revolution{
+	100% { -webkit-transform:rotate(360deg); }
+}
+
+#names { position:absolute; left:20px; top:20px; margin:0; padding:0; }
+#names li { font-weight:bold; list-style:none; padding:6px 0 7px; border-bottom:1px solid #1b1b1b; cursor:default; -webkit-transition:all 0.3s; }
+#names li:hover { color:#fff; text-shadow:0 0 10px #fff; border-color:#fff; }
+#names li del { color:#555; }
+#names li:hover del { color:#fff; }
+
+#notwebkit { position:absolute; left:0; top:50%; width:100%; color:#fff; text-align:center; margin-top:-0.5em; }
+
+</style>
+
+</head>
+
+<body>
+
+<div id="solarsystem">
+	<div class="sun"></div><!-- /5 -->
+	<div id="mercury" class="mercury"><span></span></div>
+	<div class="venus"><span></span></div>
+	<div class="earth"><span></span><span class="moon"><span></span></span></div>
+	<div class="mars"><span></span></div>
+	<div class="jupiter"><span></span></div>
+	<div class="saturn"><span></span></div>
+	<div class="uranus"><span></span></div>
+	<div class="neptune"><span></span></div>
+	<div class="pluto"><span></span></div>
+</div>
+
+<ul id="names"></ul>
+
+<script>
+
+(function(){
+
+	var solarsystem=document.getElementById('solarsystem');
+	var namebox=document.getElementById('names');
+
+	//apple webkit only
+	if(!(/applewebkit/i).test(navigator.userAgent)){
+		document.body.removeChild(solarsystem);
+		document.body.removeChild(namebox);
+		solarsystem=document.createElement('p');
+		solarsystem.id='notwebkit';
+		solarsystem.innerHTML='Webkit browser only :(';
+		document.body.appendChild(solarsystem);
+		return;
+	}
+
+	var planets=solarsystem.getElementsByTagName('div');
+	var i, names, targetno, size=800, max=planets.length, html=[];
+
+	for(i=1; i<max; i++){
+		html.push('<li>');
+		if(i==max-1){
+			html.push('<del>');
+		}
+		html.push(planets[i].className.replace(/./, planets[i].className.substring(0, 1).toUpperCase()));
+		if(i==max-1){
+			html.push('</del>');
+		}
+		html.push('</li>');
+	}
+	namebox.innerHTML=html.join('');
+
+	names=namebox.getElementsByTagName('li');
+	for(i=0; i<max-1; i++){
+		names[i].dataset.targetno=i+1;
+		names[i].addEventListener('mouseover', focusing, false);
+		names[i].addEventListener('mouseout', bluring);
+	}
+
+	function focusing(e){
+
+		targetno=parseInt(this.dataset.targetno);
+
+		for(i=1; i<max; i++){
+			if(i==targetno){
+				planets[targetno].className+=' focus';
+			}else{
+				planets[i].className=planets[i].className.replace(/ focus/g, '');
+			}
+		}
+
+	}
+
+	function bluring(){
+		if(targetno){
+			planets[targetno].className=planets[targetno].className.replace(/ focus/, '');
+		}
+	}
+
+	function resize(){
+		var rate=Math.min(window.innerWidth/size, window.innerHeight/size);
+		solarsystem.style.webkitTransform='scale('+rate+', '+rate+')';
+	}
+
+	document.body.addEventListener('touchstart', bluring);
+	window.addEventListener('resize', resize);
+	window.addEventListener('load', resize);
+
+})();
+
+</script>
+
+</body>
+</html>
