@@ -6,12 +6,18 @@
 **Coverflow**  
 <http://www.psyonline.kr/blog/pages/css3-coverflow.html>  
 
-**Flip Pages**  
+**Flip pages**  
 <http://www.psyonline.kr/blog/pages/css3-flip.html>  
 
-**Solar System**  
+**Solar system**  
 <http://www.psyonline.kr/blog/pages/css3-solarsystem.html>  
 
-**3D Text**  
-Copy Element and modify Z value. Texts are modifiable.  
-<http://www.psyonline.kr/blog/pages/css3-3dtext.html>  
+**3D text**  
+<http://www.psyonline.kr/blog/pages/css3-3dtext.html>
+(Texts are modifiable.)
+
+**Button mouse down effect like MSN**
+<http://www.psyonline.kr/blog/pages/css3-click-effect.html>
+
+**Different hover/leave effect using animation**
+<http://www.psyonline.kr/blog/pages/css3-hover-leave.html>  
