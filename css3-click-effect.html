@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> MSN Effect </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+<style>
+
+body { font-family:'Helvetica Neue',Arial,Helvetica,'Liberation Sans','맑은 고딕','Malgun Gothic','나눔고딕','돋움',dotum; font-size:75px; color:#fff; text-align:center; text-shadow:0 -1px 0 rgba(0, 0, 0, 0.5); line-height:1.35em; margin:0; padding:0; background:#fff; overflow:hidden; }
+
+ul { height:100px; margin:0; padding:20px; }
+ul li { float:left; list-style:none; width:100px; height:100px; margin-right:10px; background:#f60; display:block; cursor:pointer;
+	-webkit-transform:perspective(600px);  -webkit-transition:-webkit-transform 0.15s linear;
+	-moz-transform:perspective(600px);  -moz-transition:-moz-transform 0.15s linear;
+	-o-transform:perspective(600px);  -o-transition:-o-transform 0.15s linear;
+	-ms-transform:perspective(600px);  -ms-transition:-ms-transform 0.15s linear;
+	transform:perspective(600px);  transition:transform 0.15s linear;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+
+<script>
+
+(function(){
+
+	var items=document.getElementsByTagName('li'),
+		i=0, max=items.length,
+		target;
+
+	for(; i<max; i++){
+		items[i].addEventListener('mousedown', down, false);
+	}
+
+	function down(e){
+
+		var ex=e.offsetX || e.layerX, ey=e.offsetY || e.layerY,
+			cx=e.currentTarget.offsetWidth/2,
+			cy=e.currentTarget.offsetHeight/2,
+			angle=(Math.atan2(cx-ex, cy-ey)*180)/Math.PI*-1,
+			direction='', transform='perspective(600px) ', origin='';
+
+		if(ex>cx-10 && cx+10>ex && ey>cy-10 && cy+10>ey){
+			direction='middle';
+			transform+='translateZ(-75px)';
+			origin='50% 50%';
+		}else if(angle>-45 && 45>angle){
+			direction='top';
+			transform+='rotateX(15deg)';
+			origin='50% 100%';
+		}else if(angle>-135 && -45>angle){
+			direction='left';
+			transform+='rotateY(-15deg)';
+			origin='100% 50%';
+		}else if(angle>45 && 135>angle){
+			direction='right';
+			transform+='rotateY(15deg)';
+			origin='0% 50%';
+		}else{
+			direction='bottom';
+			transform+='rotateX(-15deg)';
+			origin='50% 0%';
+		}
+
+		this.style.WebkitTransformOrigin=origin;
+		this.style.WebkitTransform=transform;
+		this.style.MozTransformOrigin=origin;
+		this.style.MozTransform=transform;
+		this.style.OTransformOrigin=origin;
+		this.style.OTransform=transform;
+		this.style.msTransformOrigin=origin;
+		this.style.msTransform=transform;
+		this.style.transformOrigin=origin;
+		this.style.transform=transform;
+
+		target=this;
+
+		document.addEventListener('mouseup', up, false);
+
+	}
+
+	function up(e){
+		target.style.WebkitTransform='';
+		target.style.MozTransform='';
+		target.style.OTransform='';
+		target.style.msTransform='';
+		target.style.transform='';
+	}
+
+})();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> CSS3 Hover Leave Effect </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+<style>
+
+body { font-family:'Helvetica Neue',Arial,Helvetica,'Liberation Sans','맑은 고딕','Malgun Gothic','나눔고딕','돋움',dotum; font-size:25px; color:#fff; text-align:center; text-shadow:0 -1px 0 rgba(0, 0, 0, 0.5); line-height:4em; margin:0; padding:0; background:#fff; overflow:hidden; }
+
+p { position: absolute; left: 50%; top: 50%; width: 200px; height: 100px; margin: -50px 0 0 -100px; background: #333; overflow: hidden; }
+p:before { position: absolute; left: 0; top: 0; width: 100%; height: 100%; content: ''; background: #f60; display: block;
+	-webkit-animation: backgroundLeave 0.35s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	-webkit-animation-fill-mode: forwards;
+}
+p:hover:before {
+	-webkit-animation: backgroundHover 0.35s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+p span { position: relative; }
+
+@-webkit-keyframes backgroundHover {
+	0% { -webkit-transform: translate3d(-100%, 0, 0); }
+	100% { -webkit-transform: translate3d(0, 0, 0); }
+}
+@-webkit-keyframes backgroundLeave {
+	0% { -webkit-transform: translate3d(0, 0, 0); }
+	100% { -webkit-transform: translate3d(100%, 0, 0); }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<p><span>Hover/Leave</span></p>
+
+</body>
+</html>
