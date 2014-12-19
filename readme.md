@@ -13,11 +13,11 @@
 <http://www.psyonline.kr/blog/pages/css3-solarsystem.html>  
 
 **3D text**  
-<http://www.psyonline.kr/blog/pages/css3-3dtext.html>
+<http://www.psyonline.kr/blog/pages/css3-3dtext.html>  
 (Texts are modifiable.)
 
-**Button mouse down effect like MSN**
+**Button mouse down effect like MSN**  
 <http://www.psyonline.kr/blog/pages/css3-click-effect.html>
 
-**Different hover/leave effect using animation**
+**Different hover/leave effect using animation**  
 <http://www.psyonline.kr/blog/pages/css3-hover-leave.html>  
