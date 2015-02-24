@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> CSS3 Shining Text </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+<style>
+
+html, body { height: 100%; }
+body { font-family:'Helvetica Neue',Arial,Helvetica,'Liberation Sans','맑은 고딕','Malgun Gothic','나눔고딕','돋움',dotum; font-size: 75px; font-size: 7vw; font-weight: bold; color: #847bd5; line-height: 1.2em; margin: 0; padding: 0; background: #000; overflow: hidden; perspective: 500px; -webkit-perspective: 500px; }
+
+#box { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #111; background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px); background-position: 50% 50%; background-size: 20% 20%; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+#inbox { position: absolute; left: 50%; top: 50%; width: 100%; height: 1.2em; text-align: center; margin: -0.6em 0 0 -50%; transform: translateZ(50px); -webkit-transform: translateZ(50px); }
+#inbox p { position: relative; height: 100%; margin: 0; display: inline-block; }
+#inbox textarea, #inbox em { height: 100%; font: inherit; font-weight: inherit; color: inherit; text-align: center; text-transform: uppercase; margin: 0; padding: 0 20px; border: 0; background: inherit; box-sizing: border-box; overflow: hidden; }
+#inbox textarea { position: absolute; width: 100%; background: #333; outline: none; resize: none; -webkit-appearance: none; opacity: 0; }
+#inbox textarea:focus { opacity: 0.5; }
+#inbox em { position: relative; width: 50px; white-space: nowrap; pointer-events: none; }
+#inbox em.shining { position: absolute; left: 0; top: 0; width: 0.5em; padding: 0; transform: skewX(-30deg); -webkit-transform: skewX(-30deg); }
+#inbox em.shining em { position: absolute; left: 20px; top: 0; color: rgba(255, 255, 255, 0.5); padding: 0; transform: skewX(30deg) translateX(20px); -webkit-transform: skewX(30deg) translateX(20px); overflow: visible; }
+
+</style>
+
+</head>
+
+<body>
+
+<div id="box">
+	<div id="inbox">
+		<p>
+			<textarea spellcheck="false">psyonline</textarea>
+		</p>
+	</div>
+</div>
+
+<script>
+(function(){
+
+	'use strict';
+
+	var box = document.getElementById('box'),
+		inbox = document.getElementById('inbox'),
+		p = inbox.children[0],
+		textarea = p.children[0],
+		clone = document.createElement('em'),
+		shining = document.createElement('em'),
+		shininginner = document.createElement('em'),
+		maxrotatey = 10,
+		areawidth, areaheight;
+
+
+	p.appendChild(clone);
+
+	shining.className = 'shining';
+	shining.appendChild(shininginner);
+	p.appendChild(shining);
+
+	window.addEventListener('resize', resize);
+	box.addEventListener('mousemove', move);
+	textarea.addEventListener('input', copy);
+
+	resize();
+	copy();
+	tilt(0);
+
+
+	function move(e) {
+		var halfwidth = areawidth/2;
+		tilt((e.clientX-halfwidth)/halfwidth);
+	}
+
+	function tilt(percent) {
+		var halfwidth = clone.offsetWidth/2,
+			left = halfwidth+halfwidth*(-percent)-shining.offsetWidth/2;
+		shining.style.left = left +'px';
+		shininginner.style.left = -left +'px';
+		box.style.transform = box.style.webkitTransform = 'rotateY('+ (maxrotatey*percent) +'deg)';
+	}
+
+	function resize() {
+
+		var gridsize, padding;
+
+		areawidth = document.documentElement.offsetWidth;
+		areaheight = document.documentElement.offsetHeight;
+
+		gridsize = Math.ceil(Math.min(areawidth, areaheight)/7);
+		padding = gridsize*Math.ceil((areawidth/2)/gridsize);
+		box.style.left = box.style.top = -padding +'px';
+		box.style.padding = padding +'px';
+		box.style.backgroundSize = gridsize +'px '+ gridsize +'px';
+
+	}
+
+	function copy(e){
+		clone.innerHTML = shininginner.innerHTML = textarea.value;
+	}
+
+
+})();
+
+</script>
+
+</body>
+</html>
