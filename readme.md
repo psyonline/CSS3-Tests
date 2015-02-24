@@ -20,4 +20,7 @@
 <http://www.psyonline.kr/blog/pages/css3-click-effect.html>
 
 **Different hover/leave effect using animation**  
-<http://www.psyonline.kr/blog/pages/css3-hover-leave.html>  
+<http://www.psyonline.kr/blog/pages/css3-hover-leave.html>
+
+**Shining Text**  
+<http://www.psyonline.kr/blog/pages/css3-shining-text.html>  
