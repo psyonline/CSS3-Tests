@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> CSS3 Twist box </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+<style>
+
+html, body { height: 100%; }
+body { color: #fff; margin: 0; padding: 0; background: #fc6868; perspective: 100000px; -webkit-perspective: 100000px; }
+
+#box { position: absolute; left: 50%; top: 50%; width: 300px; height: 300px; text-align: center;
+	transform: translate(-98px, -168px) skewY(-5deg) rotateZ(22deg);
+	-webkit-transform: translate(-98px, -168px) skewY(-5deg) rotateZ(22deg);
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+#box p { width: 300px; height: 300px;
+	transform: rotateY(45deg) rotateZ(-30deg);
+	-webkit-transform: rotateY(45deg) rotateZ(-30deg);
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+#box span { position: fixed; left: 50%; top: 50%; width: 90px; height: 90px; border: 1px solid #fc6868; border-width: 0 1px; background: #ffc5c5; display: block;
+	transition: all 0.6s ease-out;
+	-webkit-transition: all 0.6s ease-out;
+}
+#box span:first-child { background: #3d4248; }
+
+</style>
+
+</head>
+
+<body>
+
+<!--
+http://codepen.io/psyonline/pen/oXZgvR
+-->
+
+<div id="box"><p></p></div>
+
+<script>
+(function() {
+
+	var box = document.getElementById('box').childNodes[0],
+		children = [],
+		angle = 0,
+		i = 0, numchildren = 420;
+
+	if (navigator.userAgent.toLowerCase().indexOf('applewebkit') == -1) {
+		box.innerHTML = 'Webkit based browsers only...';
+		box.style.transform = box.parentNode.style.transform = 'none';
+		box.parentNode.style.marginLeft = '-150px';
+		return;
+	}
+
+	for (; i < numchildren; i++) {
+		children[i] = document.createElement('span');
+		children[i].style.cssText = '-webkit-transition-delay: '+ i*0.75 +'ms; -webkit-transform: translateZ(-'+ i*0.6 +'px) rotate(0deg); transition-delay: '+ i*0.75 +'ms; transform: translateZ(-'+ i*0.6 +'px) rotate(0deg);';
+		box.appendChild(children[i]);
+	}
+
+	children[numchildren-1].addEventListener('transitionend', setrotate);
+	children[numchildren-1].addEventListener('webkitTransitionEnd', setrotate);
+	setrotate();
+
+	function setrotate() {
+		setTimeout(rotate, 150);
+	}
+
+	function rotate() {
+		angle++;
+		for (i = 0; i < numchildren; i++) {
+			children[i].style.cssText = children[i].style.cssText.replace(/rotate\([0-9]+deg/g, 'rotate('+ angle*90 +'deg');
+		}
+	}
+
+})();
+</script>
+
+</body>
+</html>

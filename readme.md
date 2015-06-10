@@ -1,5 +1,5 @@
 ### CSS3 transform, transition, animation property tests.
-#### All files are works only in webkit based browsers.
+#### Most of files are works only in webkit based browsers.
   
 -----
   
@@ -24,3 +24,9 @@
 
 **Shining Text**  
 <http://www.psyonline.kr/blog/pages/css3-shining-text.html>  
+
+**Hex Animated Icons**  
+<http://codepen.io/psyonline/details/oXBJdb/>  
+
+**Twist Box**  
+<http://codepen.io/psyonline/details/oXZgvR/>  
