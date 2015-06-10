@@ -25,5 +25,5 @@
 **Shining Text**  
 <http://www.psyonline.kr/blog/pages/css3-shining-text.html>
 
-**Twist Box**
+**Twist Box**  
 <http://codepen.io/psyonline/details/oXZgvR/>
