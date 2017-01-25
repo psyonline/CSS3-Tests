@@ -4,29 +4,29 @@
 -----
   
 **Coverflow**  
-<http://www.psyonline.kr/blog/pages/css3-coverflow.html>  
+<http://psyonline.github.io/CSS3-Tests/css3-coverflow.html>  
 
 **Flip pages**  
-<http://www.psyonline.kr/blog/pages/css3-flip.html>  
+<http://psyonline.github.io/CSS3-Tests/css3-flip.html>  
 
 **Solar system**  
-<http://www.psyonline.kr/blog/pages/css3-solarsystem.html>  
+<http://psyonline.github.io/CSS3-Tests/css3-solarsystem.html>  
 
 **3D text**  
-<http://www.psyonline.kr/blog/pages/css3-3dtext.html>  
+<http://psyonline.github.io/CSS3-Tests/css3-3dtext.html>  
 (Texts are modifiable.)
 
 **Button mouse down effect like MSN**  
-<http://www.psyonline.kr/blog/pages/css3-click-effect.html>
+<http://psyonline.github.io/CSS3-Tests/css3-click-effect.html>
 
 **Different hover/leave effect using animation**  
-<http://www.psyonline.kr/blog/pages/css3-hover-leave.html>
+<http://psyonline.github.io/CSS3-Tests/css3-hover-leave.html>
 
 **Shining Text**  
-<http://www.psyonline.kr/blog/pages/css3-shining-text.html>  
+<http://psyonline.github.io/CSS3-Tests/css3-shining-text.html>  
 
 **Hex Animated Icons**  
-<http://codepen.io/psyonline/details/oXBJdb/>  
+<http://psyonline.github.io/CSS3-Tests/css3-hex-icons.html>  
 
 **Twist Box**  
-<http://codepen.io/psyonline/details/oXZgvR/>  
+<http://psyonline.github.io/CSS3-Tests/css3-twist-box.html>  
